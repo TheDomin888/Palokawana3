@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "798553184410",
+    "project_id": "palokawana3",
+    "storage_bucket": "palokawana3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798553184410:android:b7510055692fb7fe75e723",
+        "android_client_info": {
+          "package_name": "com.dominikjezierski.palokawana3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798553184410-vj8guec04rpftnin97ogvu8t3mkokbjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4UUh9S6s3dZJjwRL5VJ8LO1a2MFEqi2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798553184410-vj8guec04rpftnin97ogvu8t3mkokbjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
