@@ -40,6 +40,7 @@ dependencies:
   firebase_auth: ^4.1.4
   get: ^4.6.5
   firebase_core: ^2.4.0
+  flutter_bloc: ^8.1.1
 
 
 dev_dependencies:
@@ -79,6 +80,11 @@ flutter:
     - images/google.png
     - images/apple.png
     - images/facebook.png
+    - images/applepay.png
+    - images/googlepay.png
+    - images/przelewy24.png
+    - images/blik.jpeg
+    - images/inpost.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

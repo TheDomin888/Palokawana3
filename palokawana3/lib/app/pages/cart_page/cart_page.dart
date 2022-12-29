@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/my_controller.dart';
+import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 
 class CartPage extends StatelessWidget {
   CartPage({super.key});
@@ -255,7 +255,7 @@ class CartPage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 145),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
                       child: Text(
@@ -331,7 +331,7 @@ class CartPage extends StatelessWidget {
                     child: Divider(thickness: 0.5, color: Colors.grey),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Row(
@@ -350,15 +350,19 @@ class CartPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(
+                  height: 50,
+                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        padding: const EdgeInsets.all(15),
-                        margin: const EdgeInsets.all(20),
+                        width: 190,
+                        height: 53,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 160, 80, 48),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Center(
@@ -366,7 +370,7 @@ class CartPage extends StatelessWidget {
                             'Kontunuuj zakupy',
                             style: GoogleFonts.montserrat(
                               fontSize: 16,
-                              color: const Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -376,8 +380,8 @@ class CartPage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        padding: const EdgeInsets.all(15),
-                        margin: const EdgeInsets.all(20),
+                        width: 190,
+                        height: 53,
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 160, 80, 48),
                           borderRadius: BorderRadius.circular(20.0),

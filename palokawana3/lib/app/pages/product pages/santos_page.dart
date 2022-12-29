@@ -1,10 +1,8 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/my_controller.dart';
-import 'package:palokawana3/app/pages/search_page.dart';
+import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class SantosPage extends StatelessWidget {
   SantosPage({
@@ -18,6 +16,7 @@ class SantosPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFf5e1d3),
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Text(
           'Brasil Santos',
           style: GoogleFonts.cinzel(
@@ -349,7 +348,6 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    // ignore: sort_child_properties_last
                     child: Image.asset('images/coffee-beans.png'),
                     height: 62,
                   ),

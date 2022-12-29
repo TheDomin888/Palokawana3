@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/reset_password_page.dart';
+import 'package:palokawana3/app/pages/reset_password_page/reset_password_page.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -94,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
         backgroundColor: const Color.fromARGB(255, 220, 200, 191),
       ),
       backgroundColor: const Color(0xFFf5e1d3),

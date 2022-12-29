@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/cart_page.dart';
-import 'package:palokawana3/app/pages/main_page.dart';
-import 'package:palokawana3/app/pages/profile_page.dart';
-import 'package:palokawana3/app/pages/search_page.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
+import 'package:palokawana3/app/pages/main_page/main_page.dart';
+import 'package:palokawana3/app/pages/profile_page/profile_page.dart';
+import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

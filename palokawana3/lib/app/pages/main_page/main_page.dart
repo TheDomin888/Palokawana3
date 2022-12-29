@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/product%20pages/cerrado_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/dobry_start_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/kolumbia_page.dart';
 import 'package:palokawana3/app/pages/product%20pages/santos_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -141,7 +143,7 @@ class _HomePageState extends State<MainPage> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => SantosPage(),
+                          builder: (_) => KolumbiaPage(),
                         ),
                       );
                     },
@@ -183,7 +185,7 @@ class _HomePageState extends State<MainPage> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => SantosPage(),
+                          builder: (_) => DobryStartPage(),
                         ),
                       );
                     },

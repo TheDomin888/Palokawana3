@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/reset_password_page.dart';
+import 'package:palokawana3/app/pages/reset_password_page/reset_password_page.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;

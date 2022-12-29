@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
-class CerradoPage extends StatelessWidget {
-  CerradoPage({
+class KolumbiaPage extends StatelessWidget {
+  KolumbiaPage({
     Key? key,
   }) : super(key: key);
 
@@ -18,8 +18,9 @@ class CerradoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFf5e1d3),
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Text(
-          'Brasil Cerrado',
+          'Kolumbia Excelso',
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -48,7 +49,7 @@ class CerradoPage extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: const Image(
-                image: AssetImage('images/Cerrado.png'),
+                image: AssetImage('images/Kolumbia.png'),
               ),
             ),
           ),
@@ -58,7 +59,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  'Brasil Cerrado',
+                  'Kolumbia Excelso',
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -67,7 +68,7 @@ class CerradoPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 15, bottom: 10, left: 40, right: 30),
+                    top: 15, bottom: 10, left: 10, right: 30),
                 child: Text(
                   '100% Arabika',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -79,7 +80,7 @@ class CerradoPage extends StatelessWidget {
             padding:
                 const EdgeInsets.only(top: 8, bottom: 10, left: 30, right: 30),
             child: Text(
-              'Czekolada, karmel, owoce jagodowe, orzechy.',
+              'Marcepan, ciemna czekolada, żurawina.',
               style: GoogleFonts.montserrat(fontSize: 15),
             ),
           ),
@@ -89,7 +90,7 @@ class CerradoPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Castanha do Cerrado dzięki naturnalnej obróbce ziaren,  wyróznia się na tle innych swoją słodyczą. W profilu sensorycznym możemy wyczuć nuty mlecznej czekolady, karmelu i jagód. Dla osób, które preferują mleczne kawy będzie to idealne rozwiązanie. Również miłośnicy przelewowych metod zaparzania, odkryją nowe doznania smakowe.',
+                'Kolumbia Excelso jest oceniana jako najlepsza kawa kolumbijska.  Najbardziej wyczuwalne w Kolumbia Excelso są nuty marcepanu i ciemnej czekolady. Sprawdzi się najbardziej w przelewowych metodach zaparzania, ale również jako aromatyczne espresso. Zadowoli wszystkich smakoszy lekko kwasowych kaw.',
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -121,7 +122,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '............................................',
+                  '.......................................',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -129,7 +130,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  'Brazylia',
+                  'Kolumbia',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -158,7 +159,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  'Cerrado Mineiro',
+                  'Tarso, Antioquia',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -179,7 +180,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '.................................',
+                  '..............',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -187,7 +188,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  '1100 m.n.p.m',
+                  '1.450 – 1.800 m.n.p.m',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -208,7 +209,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '............................................................',
+                  '.......................................................................',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -216,7 +217,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  'Naturalna',
+                  'Myta',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),

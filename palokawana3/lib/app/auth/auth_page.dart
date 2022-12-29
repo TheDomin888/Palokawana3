@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:palokawana3/app/pages/login_page.dart';
-import 'package:palokawana3/app/pages/register_page.dart';
+import 'package:palokawana3/app/pages/login_page/login_page.dart';
+import 'package:palokawana3/app/pages/register_page/register_page.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
