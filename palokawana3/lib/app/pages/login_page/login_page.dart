@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:palokawana3/app/pages/register_page/register_page.dart';
 import 'package:palokawana3/app/pages/reset_password_page/reset_password_page.dart';
 
 class LoginPage extends StatefulWidget {
-  final VoidCallback showRegisterPage;
-  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
+  const LoginPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -34,11 +36,11 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text.trim(),
       );
       Navigator.of(context).pop();
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (errorMessage) {
       Navigator.of(context).pop();
-      if (e.code == 'user-not-found') {
+      if (errorMessage.code == 'user-not-found') {
         wrongEmailMessage();
-      } else if (e.code == 'wrong-password') {
+      } else if (errorMessage.code == 'wrong-password') {
         wrongPasswordMessage();
       }
     }
@@ -83,13 +85,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -120,17 +115,16 @@ class _LoginPageState extends State<LoginPage> {
                       decorationThickness: 2),
                 ),
                 const SizedBox(width: 15),
-                GestureDetector(
-                  onTap: widget.showRegisterPage,
-                  child: Container(
-                    decoration: const BoxDecoration(),
-                    child: Text(
-                      'Zarejestruj się',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
+                TextButton(
+                  child: Text(
+                    'Zarejestruj się',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.black,
                     ),
+                  ),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const RegisterPage()),
                   ),
                 ),
               ],
@@ -183,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -262,34 +256,34 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
+                    height: 62,
                     child: Image.asset('images/google.png'),
-                    height: 62,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
+                    height: 62,
                     child: Image.asset('images/facebook.png'),
-                    height: 62,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
-                    child: Image.asset('images/apple.png'),
                     height: 62,
+                    child: Image.asset('images/apple.png'),
                   ),
                 ),
               ],

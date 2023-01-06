@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 
 class CheckoutPage extends StatefulWidget {
-  CheckoutPage({super.key});
+  const CheckoutPage({super.key});
 
   @override
   State<CheckoutPage> createState() => _CheckoutPageState();

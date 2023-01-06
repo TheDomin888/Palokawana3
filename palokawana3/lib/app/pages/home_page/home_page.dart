@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFf5e1d3),
       appBar: AppBar(
         title: Builder(builder: (context) {
           if (_currentIndex == 0) {
@@ -112,7 +113,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      backgroundColor: const Color(0xFFf5e1d3),
       body: Builder(builder: (context) {
         if (_currentIndex == 0) {
           return const MainPage();

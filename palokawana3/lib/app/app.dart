@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:palokawana3/app/auth/auth_page.dart';
 import 'package:palokawana3/app/cubit/root_cubit.dart';
 import 'package:palokawana3/app/pages/home_page/home_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:palokawana3/app/pages/login_page/login_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,9 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class RootPage extends StatelessWidget {
-  const RootPage({
-    Key? key,
-  }) : super(key: key);
+  const RootPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +29,11 @@ class RootPage extends StatelessWidget {
       create: (context) => RootCubit()..start(),
       child: BlocBuilder<RootCubit, RootState>(
         builder: (context, state) {
-          return StreamBuilder<User?>(
-              stream: FirebaseAuth.instance.authStateChanges(),
-              builder: (context, snapshot) {
-                final user = snapshot.hasData;
-                if (snapshot.hasData) {
-                  return const HomePage();
-                } else {
-                  return const AuthPage();
-                }
-              });
+          final user = state.user;
+          if (user == null) {
+            return const LoginPage();
+          }
+          return const HomePage();
         },
       ),
     );

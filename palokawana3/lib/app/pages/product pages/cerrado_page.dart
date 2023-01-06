@@ -18,6 +18,7 @@ class CerradoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFf5e1d3),
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Text(
           'Brasil Cerrado',
           style: GoogleFonts.cinzel(
