@@ -63,7 +63,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 220, 200, 191),
       ),
-      backgroundColor: const Color(0xFFf5e1d3),
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       body: Center(
         child: ListView(
           children: [

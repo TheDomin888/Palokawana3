@@ -11,7 +11,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf5e1d3),
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       body: Builder(builder: (context) {
         return Center(
           child: ListView(

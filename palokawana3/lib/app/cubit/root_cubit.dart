@@ -10,6 +10,7 @@ class RootCubit extends Cubit<RootState> {
       : super(
           const RootState(
             user: null,
+            currentUser: '',
           ),
         );
 
@@ -23,6 +24,7 @@ class RootCubit extends Cubit<RootState> {
     emit(
       const RootState(
         user: null,
+        currentUser: '',
       ),
     );
 
@@ -31,13 +33,17 @@ class RootCubit extends Cubit<RootState> {
         emit(
           RootState(
             user: user,
+            currentUser: '',
           ),
         );
       },
     )..onError(
         (error) {
           emit(
-            const RootState(user: null),
+            const RootState(
+              user: null,
+              currentUser: '',
+            ),
           );
         },
       );

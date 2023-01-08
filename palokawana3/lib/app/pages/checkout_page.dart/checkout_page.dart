@@ -23,7 +23,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        backgroundColor: const Color(0xFFf5e1d3),
+        backgroundColor: const Color.fromARGB(255, 243, 234, 228),
         appBar: AppBar(
           title: Text(
             'Kasa',

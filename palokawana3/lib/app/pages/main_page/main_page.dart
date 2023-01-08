@@ -19,8 +19,9 @@ class _HomePageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Builder(
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
+      body: Builder(
         builder: (context) {
           return Center(
             child: ListView(

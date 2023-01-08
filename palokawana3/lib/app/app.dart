@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:palokawana3/app/cubit/root_cubit.dart';
 import 'package:palokawana3/app/pages/home_page/home_page.dart';
 import 'package:palokawana3/app/pages/login_page/login_page.dart';
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -31,7 +30,7 @@ class RootPage extends StatelessWidget {
         builder: (context, state) {
           final user = state.user;
           if (user == null) {
-            return const LoginPage();
+            return LoginPage();
           }
           return const HomePage();
         },
