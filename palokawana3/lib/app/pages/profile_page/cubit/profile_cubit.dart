@@ -9,7 +9,7 @@ part 'profile_state.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit()
       : super(
-          ProfileState(
+          const ProfileState(
             currentUser: '',
           ),
         );
@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   Future<void> start() async {
     emit(
-      ProfileState(
+      const ProfileState(
         currentUser: '',
       ),
     );
@@ -30,7 +30,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     _streamSubscription = FirebaseAuth.instance.authStateChanges().listen(
       (user) {
         emit(
-          ProfileState(
+          const ProfileState(
             currentUser: '',
           ),
         );
@@ -38,7 +38,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     )..onError(
         (error) {
           emit(
-            ProfileState(
+            const ProfileState(
               currentUser: '',
             ),
           );
