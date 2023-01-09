@@ -1,15 +1,16 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
-part 'root_state.dart';
+part 'profile_state.dart';
 
-class RootCubit extends Cubit<RootState> {
-  RootCubit()
+class ProfileCubit extends Cubit<ProfileState> {
+  ProfileCubit()
       : super(
-          const RootState(
-            user: null,
+          ProfileState(
+            currentUser: '',
           ),
         );
 
@@ -21,24 +22,24 @@ class RootCubit extends Cubit<RootState> {
 
   Future<void> start() async {
     emit(
-      const RootState(
-        user: null,
+      ProfileState(
+        currentUser: '',
       ),
     );
 
     _streamSubscription = FirebaseAuth.instance.authStateChanges().listen(
       (user) {
         emit(
-          RootState(
-            user: user,
+          ProfileState(
+            currentUser: '',
           ),
         );
       },
     )..onError(
         (error) {
           emit(
-            const RootState(
-              user: null,
+            ProfileState(
+              currentUser: '',
             ),
           );
         },

@@ -3,16 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/login_page/cubit/login_cubit.dart';
-import 'package:palokawana3/app/pages/register_page/register_page.dart';
 import 'package:palokawana3/app/pages/reset_password_page/reset_password_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({
     Key? key,
   }) : super(key: key);
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  var isCreatingAccount = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +46,21 @@ class LoginPage extends StatelessWidget {
                 child: ListView(
                   children: [
                     const SizedBox(height: 50),
-                    const Image(
-                      image: AssetImage('images/pyk.png'),
-                      width: 120,
-                      height: 120,
+                    const Center(
+                      child: Image(
+                        image: AssetImage('images/pyk.png'),
+                        width: 120,
+                        height: 120,
+                      ),
                     ),
                     const SizedBox(height: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Zaloguj się',
+                          isCreatingAccount == true
+                              ? 'Zarejestruj się'
+                              : 'Zaloguj się',
                           style: GoogleFonts.montserrat(
                               fontSize: 20,
                               color: const Color.fromARGB(255, 160, 80, 48),
@@ -59,25 +69,14 @@ class LoginPage extends StatelessWidget {
                               decorationThickness: 2),
                         ),
                         const SizedBox(width: 15),
-                        TextButton(
-                          child: Text(
-                            'Zarejestruj się',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              color: Colors.black,
-                            ),
-                          ),
-                          onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterPage()),
-                          ),
-                        ),
                       ],
                     ),
                     const SizedBox(height: 20),
                     Center(
                       child: Text(
-                        'Witaj ponownie! Brakowało nam Ciebie!',
+                        isCreatingAccount == true
+                            ? 'Witaj! Nie masz konta? Zarejestruj się'
+                            : 'Witaj ponownie! Brakowało nam Ciebie!',
                         style: GoogleFonts.montserrat(fontSize: 15),
                       ),
                     ),
@@ -92,7 +91,7 @@ class LoginPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: TextField(
-                            controller: emailController,
+                            controller: widget.emailController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: ('Adres e-mail'),
@@ -112,7 +111,7 @@ class LoginPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: TextField(
-                            controller: passwordController,
+                            controller: widget.passwordController,
                             obscureText: true,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
@@ -124,8 +123,25 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              isCreatingAccount == true;
+                            });
+                          },
+                          child: Text(
+                            isCreatingAccount == true
+                                ? 'Zaloguj się'
+                                : 'Utwórz konto',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -135,16 +151,12 @@ class LoginPage extends StatelessWidget {
                               }),
                             );
                           },
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 50.0),
-                            child: Text(
-                              'Resetuj Hasło',
-                              style: GoogleFonts.montserrat(
-                                fontSize: 15,
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.bold,
-                              ),
+                          child: Text(
+                            'Resetuj Hasło',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
@@ -165,7 +177,9 @@ class LoginPage extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              'Zaloguj się',
+                              isCreatingAccount == true
+                                  ? 'Zarejestruj się'
+                                  : 'Zaloguj się',
                               style: GoogleFonts.montserrat(
                                 fontSize: 16,
                                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -262,7 +276,7 @@ class LoginPage extends StatelessWidget {
     // );
     context
         .read<LoginCubit>()
-        .logIn(emailController.text, passwordController.text);
+        .logIn(widget.emailController.text, widget.passwordController.text);
   }
 
   void wrongEmailMessage(BuildContext context) {
