@@ -32,4 +32,22 @@ class LoginCubit extends Cubit<LoginState> {
       }
     }
   }
+
+  Future<void> passwordReset(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: email.trim(),
+      );
+      emit(
+        LoginState(
+          success: true,
+          errorMessage: null,
+        ),
+      );
+    } on FirebaseAuthException catch (errorMessage) {
+      if (errorMessage.code == 'invalid-email') {
+        emit(LoginState(errorMessage: 'Nie znaleziono usera'));
+      }
+    }
+  }
 }

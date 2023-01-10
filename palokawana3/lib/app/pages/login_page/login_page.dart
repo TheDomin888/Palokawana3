@@ -55,18 +55,20 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 40),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          isCreatingAccount == true
-                              ? 'Zarejestruj się'
-                              : 'Zaloguj się',
-                          style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              color: const Color.fromARGB(255, 160, 80, 48),
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 2),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 156),
+                          child: Text(
+                            isCreatingAccount == true
+                                ? 'Zarejestruj się'
+                                : 'Zaloguj się',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 20,
+                                color: const Color.fromARGB(255, 160, 80, 48),
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                                decorationThickness: 2),
+                          ),
                         ),
                         const SizedBox(width: 15),
                       ],
@@ -127,9 +129,11 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            setState(() {
-                              isCreatingAccount == true;
-                            });
+                            setState(
+                              () {
+                                isCreatingAccount == true;
+                              },
+                            );
                           },
                           child: Text(
                             isCreatingAccount == true
@@ -147,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return const ResetPasswordPage();
+                                return ResetPasswordPage();
                               }),
                             );
                           },
