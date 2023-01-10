@@ -1,11 +1,13 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
-class SantosPage extends StatelessWidget {
-  SantosPage({
+class KolumbiaPage extends StatelessWidget {
+  KolumbiaPage({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +20,7 @@ class SantosPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          'Brasil Santos',
+          'Kolumbia Excelso',
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -36,21 +38,6 @@ class SantosPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 220, 200, 191),
-        type: BottomNavigationBarType.fixed,
-        iconSize: 30,
-        unselectedFontSize: 12,
-        selectedFontSize: 12,
-        fixedColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Główna'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Szukaj'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Koszyk'),
-        ],
-      ),
       body: ListView(
         children: [
           Padding(
@@ -62,7 +49,7 @@ class SantosPage extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: const Image(
-                image: AssetImage('images/Santos.png'),
+                image: AssetImage('images/Kolumbia.png'),
               ),
             ),
           ),
@@ -72,7 +59,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  'Brasil Santos',
+                  'Kolumbia Excelso',
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -81,7 +68,7 @@ class SantosPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 15, bottom: 10, left: 70, right: 30),
+                    top: 15, bottom: 10, left: 10, right: 30),
                 child: Text(
                   '100% Arabika',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -93,7 +80,7 @@ class SantosPage extends StatelessWidget {
             padding:
                 const EdgeInsets.only(top: 8, bottom: 10, left: 30, right: 30),
             child: Text(
-              'Orzech włoski - ciemna czekolada',
+              'Marcepan, ciemna czekolada, żurawina.',
               style: GoogleFonts.montserrat(fontSize: 15),
             ),
           ),
@@ -103,7 +90,7 @@ class SantosPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Klasyczna, wysokiej jakości brazylijska arabika charakteryzująca się niską kwasowością. W profilu sensorycznym można wyczuć orzechy włoskie i ciemną czekoladę. Kawa idealnie nadaję się do ekspresów ciśnieniowych, kawiarek czy French Pressa.',
+                'Kolumbia Excelso jest oceniana jako najlepsza kawa kolumbijska.  Najbardziej wyczuwalne w Kolumbia Excelso są nuty marcepanu i ciemnej czekolady. Sprawdzi się najbardziej w przelewowych metodach zaparzania, ale również jako aromatyczne espresso. Zadowoli wszystkich smakoszy lekko kwasowych kaw.',
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -135,7 +122,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '............................................',
+                  '.......................................',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -143,7 +130,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  'Brazylia',
+                  'Kolumbia',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -164,7 +151,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '................................................................',
+                  '..................................................',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -172,7 +159,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  'Sao Paulo',
+                  'Tarso, Antioquia',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -193,7 +180,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 10, right: 10),
                 child: Text(
-                  '.....................',
+                  '..............',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -201,7 +188,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 1, right: 30),
                 child: Text(
-                  '800-1350 m.n.p.m',
+                  '1.450 – 1.800 m.n.p.m',
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -348,8 +335,9 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    height: 62,
+                    // ignore: sort_child_properties_last
                     child: Image.asset('images/coffee-beans.png'),
+                    height: 62,
                   ),
                 ),
               ),
@@ -363,8 +351,8 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    height: 62,
                     child: Image.asset('images/coffee-maker.png'),
+                    height: 62,
                   ),
                 ),
               ),
@@ -378,8 +366,8 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    height: 62,
                     child: Image.asset('images/chemex.png'),
+                    height: 62,
                   ),
                 ),
               ),
@@ -393,8 +381,8 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    height: 62,
                     child: Image.asset('images/aeropress.png'),
+                    height: 62,
                   ),
                 ),
               ),
@@ -408,8 +396,8 @@ class SantosPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    height: 62,
                     child: Image.asset('images/coffee-pot.png'),
+                    height: 62,
                   ),
                 ),
               ),
@@ -519,7 +507,7 @@ class SantosPage extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         top: 12, bottom: 10, left: 10, right: 40),
                     child: Text(
-                      '27zł',
+                      '33zł',
                       style: GoogleFonts.montserrat(
                           fontSize: 30, fontWeight: FontWeight.bold),
                     ),

@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/my_controller.dart';
-import 'package:palokawana3/app/pages/search_page.dart';
+import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class CerradoPage extends StatelessWidget {
   CerradoPage({
@@ -18,6 +18,7 @@ class CerradoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFf5e1d3),
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Text(
           'Brasil Cerrado',
           style: GoogleFonts.cinzel(

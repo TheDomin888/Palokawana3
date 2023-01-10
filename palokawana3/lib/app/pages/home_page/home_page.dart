@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/cart_page.dart';
-import 'package:palokawana3/app/pages/main_page.dart';
-import 'package:palokawana3/app/pages/profile_page.dart';
-import 'package:palokawana3/app/pages/search_page.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
+import 'package:palokawana3/app/pages/main_page/main_page.dart';
+import 'package:palokawana3/app/pages/profile_page/profile_page.dart';
+import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       appBar: AppBar(
         title: Builder(builder: (context) {
           if (_currentIndex == 0) {
@@ -112,7 +113,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      backgroundColor: const Color(0xFFf5e1d3),
       body: Builder(builder: (context) {
         if (_currentIndex == 0) {
           return const MainPage();

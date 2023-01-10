@@ -9,6 +9,7 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Container(
           width: double.infinity,
           height: 40,
@@ -32,7 +33,7 @@ class SearchPage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 220, 200, 191),
       ),
-      backgroundColor: const Color(0xFFf5e1d3),
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
     );
   }
 }

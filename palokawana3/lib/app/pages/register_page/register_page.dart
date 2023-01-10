@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/reset_password_page.dart';
+import 'package:palokawana3/app/pages/login_page/login_page.dart';
+import 'package:palokawana3/app/pages/reset_password_page/reset_password_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  final VoidCallback showLoginPage;
-  const RegisterPage({Key? key, required this.showLoginPage}) : super(key: key);
+  const RegisterPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -15,14 +17,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpasswordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    confirmpasswordController.dispose();
-    super.dispose();
-  }
 
   Future signUp() async {
     if (passwordConfirmed()) {
@@ -48,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 220, 200, 191),
       ),
-      backgroundColor: const Color(0xFFf5e1d3),
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       body: Center(
         child: ListView(
           children: [
@@ -62,17 +56,16 @@ class _RegisterPageState extends State<RegisterPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: widget.showLoginPage,
-                  child: Container(
-                    decoration: const BoxDecoration(),
-                    child: Text(
-                      'Zaloguj się',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
+                TextButton(
+                  child: Text(
+                    'Zaloguj się',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.black,
                     ),
+                  ),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => LoginPage()),
                   ),
                 ),
                 const SizedBox(width: 15),
@@ -166,7 +159,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return const ResetPasswordPage();
+                        return ResetPasswordPage();
                       }),
                     );
                   },
@@ -235,7 +228,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
@@ -246,7 +239,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
@@ -257,7 +250,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
