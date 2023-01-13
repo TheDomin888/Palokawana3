@@ -13,7 +13,6 @@ class ResetPasswordPage extends StatefulWidget {
 }
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
-  var isCreatingAccount = false;
   Future passwordReset(BuildContext context) async {
     context.read<LoginCubit>().passwordReset(widget.emailController.text);
   }
@@ -54,7 +53,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     const SizedBox(height: 40),
                     Center(
                       child: Text(
-                        isCreatingAccount == true ? 'Resetuj hasło' : 'test',
+                        'Resetuj hasło',
                         style: GoogleFonts.montserrat(
                           fontSize: 19,
                           color: const Color.fromARGB(255, 0, 0, 0),
@@ -93,15 +92,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 40),
-                    TextButton(
-                      onPressed: () {
-                        setState(() {
-                          isCreatingAccount = true;
-                        });
-                      },
-                      child: Text('klik'),
-                    ),
+                    const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 110.0),
                       child: GestureDetector(
