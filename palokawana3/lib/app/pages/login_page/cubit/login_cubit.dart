@@ -25,7 +25,7 @@ class LoginCubit extends Cubit<LoginState> {
         // wrongEmailMessage(context);
       } else if (errorMessage.code == 'wrong-password') {
         emit(LoginState(
-          errorMessage: 'Złe hasło ziomek',
+          errorMessage: 'Złe hasło',
           key: UniqueKey(),
         ));
         // wrongPasswordMessage(context);
@@ -47,6 +47,27 @@ class LoginCubit extends Cubit<LoginState> {
     } on FirebaseAuthException catch (errorMessage) {
       if (errorMessage.code == 'invalid-email') {
         emit(LoginState(errorMessage: 'Nie znaleziono usera'));
+      }
+    }
+  }
+
+  Future<void> signUp(
+      String email, String password, String passwordConfirmed) async {
+    if (password.trim() != passwordConfirmed.trim()) {
+      emit(LoginState(errorMessage: 'Hasła róznią się od siebie'));
+    } else {
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email.trim(),
+          password: password.trim(),
+        );
+        emit(
+          LoginState(
+            errorMessage: null,
+          ),
+        );
+      } on FirebaseAuthException catch (error) {
+        emit(LoginState(errorMessage: error.toString()));
       }
     }
   }

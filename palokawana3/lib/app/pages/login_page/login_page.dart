@@ -30,7 +30,22 @@ class _LoginPageState extends State<LoginPage> {
           if (state.errorMessage != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage!),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                elevation: 6.0,
+                behavior: SnackBarBehavior.floating,
+                content: Row(
+                  children: [
+                    const Icon(Icons.alarm),
+                    const SizedBox(width: 20),
+                    Text(
+                      state.errorMessage!,
+                      style: GoogleFonts.montserrat(
+                          fontSize: 13, color: Colors.black),
+                    ),
+                  ],
+                ),
+                backgroundColor: Colors.white,
               ),
             );
           }
@@ -215,7 +230,11 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 110.0),
                     child: GestureDetector(
                       onTap: () {
-                        signIn(context);
+                        if (isCreatingAccount) {
+                          signUp(context);
+                        } else {
+                          signIn(context);
+                        }
                       },
                       child: Container(
                         padding: const EdgeInsets.all(15),
@@ -324,6 +343,14 @@ class _LoginPageState extends State<LoginPage> {
     context
         .read<LoginCubit>()
         .logIn(widget.emailController.text, widget.passwordController.text);
+  }
+
+  Future signUp(BuildContext context) async {
+    context.read<LoginCubit>().signUp(
+          widget.emailController.text,
+          widget.passwordController.text,
+          widget.confirmpasswordController.text,
+        );
   }
 
   void wrongEmailMessage(BuildContext context) {

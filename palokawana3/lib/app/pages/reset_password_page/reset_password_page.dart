@@ -26,7 +26,22 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           if (state.errorMessage != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage!),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                elevation: 6.0,
+                behavior: SnackBarBehavior.floating,
+                content: Row(
+                  children: [
+                    const Icon(Icons.alarm),
+                    const SizedBox(width: 20),
+                    Text(
+                      state.errorMessage!,
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12, color: Colors.black),
+                    ),
+                  ],
+                ),
+                backgroundColor: Colors.white,
               ),
             );
           }
