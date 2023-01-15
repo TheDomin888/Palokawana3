@@ -20,7 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
         ),
       );
     } on FirebaseAuthException catch (errorMessage) {
-      if (errorMessage.code == 'user-not-found') {
+      if (errorMessage.code == 'invalid-email') {
         emit(LoginState(errorMessage: 'Nie znaleziono usera'));
         // wrongEmailMessage(context);
       } else if (errorMessage.code == 'wrong-password') {
@@ -66,8 +66,10 @@ class LoginCubit extends Cubit<LoginState> {
             errorMessage: null,
           ),
         );
-      } on FirebaseAuthException catch (error) {
-        emit(LoginState(errorMessage: error.toString()));
+      } on FirebaseAuthException catch (errorMessage) {
+        if (errorMessage.code == 'invalid-email') {
+          emit(LoginState(errorMessage: 'Zły adres email'));
+        }
       }
     }
   }
