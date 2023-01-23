@@ -328,18 +328,19 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future signIn(BuildContext context) async {
-    // showDialog(
-    //   context: context,
-    //   builder: (context) {
-    //     return const Center(
-    //       child: CircularProgressIndicator(
-    //         valueColor: AlwaysStoppedAnimation<Color>(
-    //           Color.fromARGB(255, 160, 80, 48),
-    //         ),
-    //       ),
-    //     );
-    //   },
-    // );
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Color.fromARGB(255, 160, 80, 48),
+            ),
+          ),
+        );
+      },
+    );
     context
         .read<LoginCubit>()
         .logIn(widget.emailController.text, widget.passwordController.text);
@@ -351,43 +352,5 @@ class _LoginPageState extends State<LoginPage> {
           widget.passwordController.text,
           widget.confirmpasswordController.text,
         );
-  }
-
-  void wrongEmailMessage(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        Future.delayed(const Duration(seconds: 3), () {
-          Navigator.of(context).pop(true);
-        });
-        return AlertDialog(
-          title: Center(
-            child: Text(
-              'Niepoprawny adres email',
-              style: GoogleFonts.montserrat(fontSize: 15),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  void wrongPasswordMessage(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        Future.delayed(const Duration(seconds: 3), () {
-          Navigator.of(context).pop(true);
-        });
-        return AlertDialog(
-          title: Center(
-            child: Text(
-              'Niepoprawne hasło',
-              style: GoogleFonts.montserrat(fontSize: 15),
-            ),
-          ),
-        );
-      },
-    );
   }
 }

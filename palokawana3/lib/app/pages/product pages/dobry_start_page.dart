@@ -48,9 +48,7 @@ class DobryStartPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: const Image(
-                image: AssetImage('images/Dobrystart.png'),
-              ),
+              child: const Image(image: AssetImage('images/Dobrystart.png')),
             ),
           ),
           Row(

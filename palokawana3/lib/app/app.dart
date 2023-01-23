@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palokawana3/app/cubit/root_cubit.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_model.dart';
 import 'package:palokawana3/app/pages/home_page/home_page.dart';
 import 'package:palokawana3/app/pages/login_page/login_page.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => CartModel(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const RootPage(),
       ),
-      home: const RootPage(),
     );
   }
 }

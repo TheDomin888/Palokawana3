@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Builder(builder: (context) {
           if (_currentIndex == 0) {
@@ -85,12 +85,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: Container(
         clipBehavior: Clip.hardEdge,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            topLeft: Radius.circular(30),
-          ),
-        ),
+        decoration: const BoxDecoration(),
         child: BottomNavigationBar(
           onTap: (newIndex) {
             setState(() {

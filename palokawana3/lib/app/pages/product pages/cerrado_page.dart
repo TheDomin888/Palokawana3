@@ -1,13 +1,17 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_model.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
+import 'package:palokawana3/app/pages/cart_page/coffee_item_tile.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/search_page/search_page.dart';
+import 'package:provider/provider.dart';
 
 class CerradoPage extends StatelessWidget {
+  void Function()? onPressed;
   CerradoPage({
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
@@ -28,10 +32,10 @@ class CerradoPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SearchPage()),
+              MaterialPageRoute(builder: (_) => CartPage()),
             ),
             icon: const Icon(
-              Icons.search,
+              Icons.shopping_bag_outlined,
               size: 32,
               color: Colors.black,
             ),
@@ -474,7 +478,7 @@ class CerradoPage extends StatelessWidget {
                         width: 30,
                         child: Text(
                           c.coffee.toString(),
-                          style: GoogleFonts.montserrat(fontSize: 30),
+                          style: GoogleFonts.montserrat(fontSize: 25),
                           textAlign: TextAlign.center,
                         ),
                       )),
@@ -518,8 +522,8 @@ class CerradoPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100.0),
-            child: GestureDetector(
-              onTap: () {},
+            child: MaterialButton(
+              onPressed: onPressed,
               child: Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.all(20),
@@ -538,6 +542,29 @@ class CerradoPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ),
+          Expanded(
+            child: Consumer<CartModel>(
+              builder: (context, value, child) {
+                return ListView.builder(
+                  itemCount: value.shopItems.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return CoffeeItemTile(
+                      itemName: value.shopItems[index][0],
+                      itemPrice: value.shopItems[index][1],
+                      imagePath: value.shopItems[index][2],
+                      color: value.shopItems[index][3],
+                      itemPage: value.shopItems[index][4],
+                      onPressed: () {
+                        Provider.of<CartModel>(context, listen: false)
+                            .addItemToCart(index);
+                      },
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],
