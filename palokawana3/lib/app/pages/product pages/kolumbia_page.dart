@@ -3,10 +3,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class KolumbiaPage extends StatelessWidget {
+  final Product = const ProductContent(
+    itemName: 'Kolumbia Excelso',
+    imagePath: 'images/Kolumbia.png',
+    itemSpecies: '100% Arabika',
+    itemDescription:
+        'Kolumbia Excelso jest oceniana jako najlepsza kawa kolumbijska.  Najbardziej wyczuwalne w Kolumbia Excelso są nuty marcepanu i ciemnej czekolady. Sprawdzi się najbardziej w przelewowych metodach zaparzania, ale również jako aromatyczne espresso. Zadowoli wszystkich smakoszy lekko kwasowych kaw.',
+    itemCountry: 'Kraj pochodzenia:',
+    itemRegion: 'Region:',
+    itemCultivation: 'Wysokość upraw:',
+    itemProcessing: 'Obróbka:',
+  );
+
   KolumbiaPage({
     Key? key,
   }) : super(key: key);
@@ -20,7 +34,7 @@ class KolumbiaPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          'Kolumbia Excelso',
+          Product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -28,10 +42,10 @@ class KolumbiaPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SearchPage()),
+              MaterialPageRoute(builder: (_) => CartPage()),
             ),
             icon: const Icon(
-              Icons.search,
+              Icons.shopping_bag_outlined,
               size: 32,
               color: Colors.black,
             ),
@@ -48,8 +62,8 @@ class KolumbiaPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: const Image(
-                image: AssetImage('images/Kolumbia.png'),
+              child: Image(
+                image: AssetImage(Product.imagePath),
               ),
             ),
           ),
@@ -59,7 +73,7 @@ class KolumbiaPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  'Kolumbia Excelso',
+                  Product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -70,7 +84,7 @@ class KolumbiaPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 10, right: 30),
                 child: Text(
-                  '100% Arabika',
+                  Product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -90,7 +104,7 @@ class KolumbiaPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Kolumbia Excelso jest oceniana jako najlepsza kawa kolumbijska.  Najbardziej wyczuwalne w Kolumbia Excelso są nuty marcepanu i ciemnej czekolady. Sprawdzi się najbardziej w przelewowych metodach zaparzania, ale również jako aromatyczne espresso. Zadowoli wszystkich smakoszy lekko kwasowych kaw.',
+                Product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -111,24 +125,20 @@ class KolumbiaPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Kraj pochodzenia:',
+                  Product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '.......................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Kolumbia',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -140,24 +150,20 @@ class KolumbiaPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Region:',
+                  Product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '..................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Tarso, Antioquia',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -169,24 +175,20 @@ class KolumbiaPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Wysokość upraw:',
+                  Product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '..............',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   '1.450 – 1.800 m.n.p.m',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -198,24 +200,20 @@ class KolumbiaPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Obróbka:',
+                  Product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '.......................................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Myta',
                   style: GoogleFonts.montserrat(fontSize: 15),

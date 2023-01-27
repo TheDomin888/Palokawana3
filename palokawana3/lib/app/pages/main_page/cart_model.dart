@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:palokawana3/app/pages/product%20pages/cerrado_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/cerrado_page/cerrado_page.dart';
 import 'package:palokawana3/app/pages/product%20pages/dobry_start_page.dart';
 import 'package:palokawana3/app/pages/product%20pages/kolumbia_page.dart';
 import 'package:palokawana3/app/pages/product%20pages/santos_page.dart';
@@ -11,17 +11,7 @@ class CartModel extends ChangeNotifier {
       "33zł - 113zł",
       "images/Cerrado.png",
       Colors.white,
-      CerradoPage(
-        onPressed: () => {},
-      ),
-      "Ziarna",
-      "Przelew",
-      "Chemex",
-      "Aeropress",
-      "Kawiarka"
-          "250g",
-      "500g",
-      "1kg",
+      CerradoPage(),
     ],
     [
       "Kolumbia Excelso",
@@ -29,14 +19,6 @@ class CartModel extends ChangeNotifier {
       "images/Kolumbia.png",
       Colors.white,
       KolumbiaPage(),
-      "Ziarna",
-      "Przelew",
-      "Chemex",
-      "Aeropress",
-      "Kawiarka"
-          "250g",
-      "500g",
-      "1kg",
     ],
     [
       "Dobry Start",
@@ -44,14 +26,6 @@ class CartModel extends ChangeNotifier {
       "images/Dobrystart.png",
       Colors.white,
       DobryStartPage(),
-      "Ziarna",
-      "Przelew",
-      "Chemex",
-      "Aeropress",
-      "Kawiarka"
-          "250g",
-      "500g",
-      "1kg",
     ],
     [
       "Brasil Santos",
@@ -59,14 +33,6 @@ class CartModel extends ChangeNotifier {
       "images/Santos.png",
       Colors.white,
       SantosPage(),
-      "Ziarna",
-      "Przelew",
-      "Chemex",
-      "Aeropress",
-      "Kawiarka"
-          "250g",
-      "500g",
-      "1kg",
     ],
   ];
 

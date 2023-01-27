@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:palokawana3/app/pages/cart_page/cart_model.dart';
+import 'package:palokawana3/app/pages/main_page/cart_model.dart';
 import 'package:palokawana3/app/pages/cart_page/coffee_item_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +28,7 @@ class _HomePageState extends State<MainPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 0, bottom: 11, left: 35, right: 23),
+                        top: 15, bottom: 11, left: 35, right: 23),
                     child: Text(
                       'Sklep',
                       style: GoogleFonts.montserrat(

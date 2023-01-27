@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class SantosPage extends StatelessWidget {
+  final Product = const ProductContent(
+    itemName: 'Brasil Santos',
+    imagePath: 'images/Santos.png',
+    itemSpecies: '100% Arabika',
+    itemDescription:
+        'Klasyczna, wysokiej jakości brazylijska arabika charakteryzująca się niską kwasowością. W profilu sensorycznym można wyczuć orzechy włoskie i ciemną czekoladę. Kawa idealnie nadaję się do ekspresów ciśnieniowych, kawiarek czy French Pressa.',
+    itemCountry: 'Kraj pochodzenia:',
+    itemRegion: 'Region:',
+    itemCultivation: 'Wysokość upraw:',
+    itemProcessing: 'Obróbka:',
+  );
+
   SantosPage({
     Key? key,
   }) : super(key: key);
@@ -18,7 +32,7 @@ class SantosPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          'Brasil Santos',
+          Product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -26,10 +40,10 @@ class SantosPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SearchPage()),
+              MaterialPageRoute(builder: (_) => CartPage()),
             ),
             icon: const Icon(
-              Icons.search,
+              Icons.shopping_bag_outlined,
               size: 32,
               color: Colors.black,
             ),
@@ -61,8 +75,8 @@ class SantosPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: const Image(
-                image: AssetImage('images/Santos.png'),
+              child: Image(
+                image: AssetImage(Product.imagePath),
               ),
             ),
           ),
@@ -72,7 +86,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  'Brasil Santos',
+                  Product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -83,7 +97,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 70, right: 30),
                 child: Text(
-                  '100% Arabika',
+                  Product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -103,7 +117,7 @@ class SantosPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Klasyczna, wysokiej jakości brazylijska arabika charakteryzująca się niską kwasowością. W profilu sensorycznym można wyczuć orzechy włoskie i ciemną czekoladę. Kawa idealnie nadaję się do ekspresów ciśnieniowych, kawiarek czy French Pressa.',
+                Product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -124,24 +138,20 @@ class SantosPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Kraj pochodzenia:',
+                  Product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '............................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Brazylia',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -153,24 +163,20 @@ class SantosPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Region:',
+                  Product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '................................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Sao Paulo',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -184,18 +190,14 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 1),
                 child: Text(
-                  'Wysokość upraw:',
+                  Product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '.....................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -213,18 +215,14 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 1),
                 child: Text(
-                  'Obróbka:',
+                  Product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '.......................................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(

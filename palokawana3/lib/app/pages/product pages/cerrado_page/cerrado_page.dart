@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/cart_page/cart_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
-import 'package:palokawana3/app/pages/cart_page/coffee_item_tile.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
-import 'package:palokawana3/app/pages/search_page/search_page.dart';
+import 'package:palokawana3/app/pages/main_page/cart_model.dart';
+import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 import 'package:provider/provider.dart';
 
 class CerradoPage extends StatelessWidget {
-  void Function()? onPressed;
+  final Product = const ProductContent(
+    itemName: 'Brasil Cerrado',
+    imagePath: 'images/Cerrado.png',
+    itemSpecies: '100% Arabika',
+    itemDescription:
+        'Castanha do Cerrado dzięki naturnalnej obróbce ziaren,  wyróznia się na tle innych swoją słodyczą. W profilu sensorycznym możemy wyczuć nuty mlecznej czekolady, karmelu i jagód. Dla osób, które preferują mleczne kawy będzie to idealne rozwiązanie. Również miłośnicy przelewowych metod zaparzania, odkryją nowe doznania smakowe.',
+    itemCountry: 'Kraj pochodzenia:',
+    itemRegion: 'Region:',
+    itemCultivation: 'Wysokość upraw:',
+    itemProcessing: 'Obróbka:',
+  );
   CerradoPage({
-    required this.onPressed,
     Key? key,
   }) : super(key: key);
-
   final MyController c = Get.put(MyController());
 
   @override
@@ -24,7 +31,7 @@ class CerradoPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          'Brasil Cerrado',
+          Product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -52,8 +59,8 @@ class CerradoPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: const Image(
-                image: AssetImage('images/Cerrado.png'),
+              child: Image(
+                image: AssetImage(Product.imagePath),
               ),
             ),
           ),
@@ -63,7 +70,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  'Brasil Cerrado',
+                  Product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -74,7 +81,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 40, right: 30),
                 child: Text(
-                  '100% Arabika',
+                  Product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -94,7 +101,7 @@ class CerradoPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Castanha do Cerrado dzięki naturnalnej obróbce ziaren,  wyróznia się na tle innych swoją słodyczą. W profilu sensorycznym możemy wyczuć nuty mlecznej czekolady, karmelu i jagód. Dla osób, które preferują mleczne kawy będzie to idealne rozwiązanie. Również miłośnicy przelewowych metod zaparzania, odkryją nowe doznania smakowe.',
+                Product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -115,24 +122,20 @@ class CerradoPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Kraj pochodzenia:',
+                  Product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '............................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Brazylia',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -144,24 +147,20 @@ class CerradoPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Region:',
+                  Product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '..................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Cerrado Mineiro',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -173,24 +172,20 @@ class CerradoPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Wysokość upraw:',
+                  Product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '.................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   '1100 m.n.p.m',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -202,24 +197,20 @@ class CerradoPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 30, right: 1),
+                    top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  'Obróbka:',
+                  Product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 10, right: 10),
-                child: Text(
-                  '............................................................',
-                  style: GoogleFonts.montserrat(fontSize: 15),
-                ),
+              const Expanded(
+                child: Divider(
+                    thickness: 0.5, color: Color.fromARGB(255, 51, 49, 49)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 10, left: 1, right: 30),
+                    top: 8, bottom: 10, left: 5, right: 30),
                 child: Text(
                   'Naturalna',
                   style: GoogleFonts.montserrat(fontSize: 15),
@@ -523,7 +514,7 @@ class CerradoPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100.0),
             child: MaterialButton(
-              onPressed: onPressed,
+              onPressed: () {},
               child: Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.all(20),
@@ -544,31 +535,26 @@ class CerradoPage extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Consumer<CartModel>(
-              builder: (context, value, child) {
-                return ListView.builder(
-                  itemCount: value.shopItems.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return CoffeeItemTile(
-                      itemName: value.shopItems[index][0],
-                      itemPrice: value.shopItems[index][1],
-                      imagePath: value.shopItems[index][2],
-                      color: value.shopItems[index][3],
-                      itemPage: value.shopItems[index][4],
-                      onPressed: () {
-                        Provider.of<CartModel>(context, listen: false)
-                            .addItemToCart(index);
-                      },
-                    );
-                  },
-                );
-              },
-            ),
-          ),
         ],
       ),
     );
   }
 }
+
+
+      // body: Expanded(
+      //   child: Consumer<CartModel>(
+      //     builder: (context, value, child) {
+      //       return ListView.builder(
+      //         itemBuilder: ((context, index) {
+      //           return ProductContent(
+      //             itemName: value.shopItems[index][0],
+      //             itemPrice: value.shopItems[index][1],
+      //             imagePath: value.shopItems[index][2],
+      //             color: value.shopItems[index][3],
+      //           );
+      //         }),
+      //       );
+      //     },
+      //   ),
+      // ),

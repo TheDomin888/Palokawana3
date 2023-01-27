@@ -16,7 +16,6 @@ class MyController extends GetxController {
         icon: const Icon(Icons.alarm),
         barBlur: 20,
         isDismissible: true,
-        duration: const Duration(seconds: 3),
         backgroundColor: Colors.white,
       );
     } else {

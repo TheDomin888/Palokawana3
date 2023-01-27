@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/cart_page/cart_model.dart';
+import 'package:palokawana3/app/pages/main_page/cart_model.dart';
 import 'package:palokawana3/app/pages/cart_page/coffee_item_cart.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:provider/provider.dart';
@@ -416,33 +416,3 @@ class CartPage extends StatelessWidget {
     );
   }
 }
-
-
-
-                  // Center(
-                  //   child: Consumer<CartModel>(
-                  //     builder: (context, value, child) {
-                  //       return GridView.builder(
-                  //         padding: const EdgeInsets.all(2),
-                  //         itemCount: value.shopItems.length,
-                  //         shrinkWrap: true,
-                  //         gridDelegate:
-                  //             const SliverGridDelegateWithFixedCrossAxisCount(
-                  //           crossAxisCount: 1,
-                  //           childAspectRatio: 1 / 0.6,
-                  //         ),
-                  //         itemBuilder: (context, index) {
-                  //           return CoffeeItemCart(
-                  //             itemName: value.shopItems[index][0],
-                  //             itemPrice: value.shopItems[index][1],
-                  //             imagePath: value.shopItems[index][2],
-                  //             color: value.shopItems[index][3],
-                  //             itemPage: value.shopItems[index][4],
-                  //             itemType: value.shopItems[index][6],
-                  //             itemGrammage: value.shopItems[index][10],
-                  //           );
-                  //         },
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
