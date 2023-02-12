@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
-import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
 class SantosPage extends StatelessWidget {
-  final Product = const ProductContent(
+  final product = const ProductContent(
     itemName: 'Brasil Santos',
-    imagePath: 'images/Santos.png',
+    imagePath: 'images/coffee/Santos.png',
     itemSpecies: '100% Arabika',
     itemDescription:
         'Klasyczna, wysokiej jakości brazylijska arabika charakteryzująca się niską kwasowością. W profilu sensorycznym można wyczuć orzechy włoskie i ciemną czekoladę. Kawa idealnie nadaję się do ekspresów ciśnieniowych, kawiarek czy French Pressa.',
@@ -32,7 +31,7 @@ class SantosPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          Product.itemName,
+          product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -50,21 +49,6 @@ class SantosPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 220, 200, 191),
-        type: BottomNavigationBarType.fixed,
-        iconSize: 30,
-        unselectedFontSize: 12,
-        selectedFontSize: 12,
-        fixedColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Główna'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Szukaj'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Koszyk'),
-        ],
-      ),
       body: ListView(
         children: [
           Padding(
@@ -75,9 +59,7 @@ class SantosPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Image(
-                image: AssetImage(Product.imagePath),
-              ),
+              child: Image.asset(product.imagePath),
             ),
           ),
           Row(
@@ -86,7 +68,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  Product.itemName,
+                  product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -97,7 +79,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 70, right: 30),
                 child: Text(
-                  Product.itemSpecies,
+                  product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -117,7 +99,7 @@ class SantosPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                Product.itemDescription,
+                product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -140,7 +122,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemCountry,
+                  product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -165,7 +147,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemRegion,
+                  product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -190,7 +172,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 1),
                 child: Text(
-                  Product.itemCultivation,
+                  product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -215,7 +197,7 @@ class SantosPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 1),
                 child: Text(
-                  Product.itemProcessing,
+                  product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -347,7 +329,7 @@ class SantosPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     height: 62,
-                    child: Image.asset('images/coffee-beans.png'),
+                    child: Image.asset('images/icons/coffee-beans.png'),
                   ),
                 ),
               ),
@@ -362,7 +344,7 @@ class SantosPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     height: 62,
-                    child: Image.asset('images/coffee-maker.png'),
+                    child: Image.asset('images/icons/coffee-maker.png'),
                   ),
                 ),
               ),
@@ -377,7 +359,7 @@ class SantosPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     height: 62,
-                    child: Image.asset('images/chemex.png'),
+                    child: Image.asset('images/icons/chemex.png'),
                   ),
                 ),
               ),
@@ -392,7 +374,7 @@ class SantosPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     height: 62,
-                    child: Image.asset('images/aeropress.png'),
+                    child: Image.asset('images/icons/aeropress.png'),
                   ),
                 ),
               ),
@@ -407,7 +389,7 @@ class SantosPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     height: 62,
-                    child: Image.asset('images/coffee-pot.png'),
+                    child: Image.asset('images/icons/coffee-pot.png'),
                   ),
                 ),
               ),

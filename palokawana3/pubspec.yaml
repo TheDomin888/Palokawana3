@@ -42,6 +42,7 @@ dependencies:
   firebase_core: ^2.4.0
   flutter_bloc: ^8.1.1
   provider:
+  lottie: ^2.2.0
 
 
 dev_dependencies:
@@ -55,6 +56,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.11.0
+  flutter_inset_box_shadow: ^1.0.8
 
 flutter_icons:
   android: "launcher_icon"
@@ -88,23 +90,23 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/pyk.png
-    - images/Cerrado.png
-    - images/Dobrystart.png
-    - images/Kolumbia.png
-    - images/Santos.png
-    - images/aeropress.png
-    - images/chemex.png
-    - images/coffee-beans.png
-    - images/coffee-maker.png
-    - images/coffee-pot.png
-    - images/google.png
-    - images/apple.png
-    - images/facebook.png
-    - images/applepay.png
-    - images/googlepay.png
-    - images/przelewy24.png
-    - images/blik.jpeg
-    - images/inpost.png
+    - images/coffee/Cerrado.png
+    - images/coffee/Dobrystart.png
+    - images/coffee/Kolumbia.png
+    - images/coffee/Santos.png
+    - images/icons/aeropress.png
+    - images/icons/chemex.png
+    - images/icons/coffee-beans.png
+    - images/icons/coffee-maker.png
+    - images/icons/coffee-pot.png
+    - images/icons/google.png
+    - images/icons/apple.png
+    - images/icons/facebook.png
+    - images/icons/applepay.png
+    - images/icons/googlepay.png
+    - images/icons/przelewy24.png
+    - images/icons/blik.jpeg
+    - images/icons/inpost.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

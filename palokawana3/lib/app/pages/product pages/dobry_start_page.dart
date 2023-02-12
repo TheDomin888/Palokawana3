@@ -1,17 +1,23 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
-import 'package:palokawana3/app/pages/search_page/search_page.dart';
 
-class DobryStartPage extends StatelessWidget {
-  final Product = const ProductContent(
+class DobryStartPage extends StatefulWidget {
+  DobryStartPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<DobryStartPage> createState() => _DobryStartPageState();
+}
+
+class _DobryStartPageState extends State<DobryStartPage> {
+  final product = const ProductContent(
     itemName: 'Dobry Start',
-    imagePath: 'images/Dobrystart.png',
+    imagePath: 'images/coffee/Dobrystart.png',
     itemSpecies: 'Arabika/Robusta',
     itemDescription:
         'Swój wyjątkowy aromat i smak zawdzięcza dzięki połączeniu dwóch gatunków ziaren: brazylijskiej Fazendy da Lagoa czyli Arabica, która charakteryzuje się owocowym aromatem oraz delikatną kwaskowatością oraz indyjskiej Robusta Cherry nadająca wyrazisty charakter i odpowiedni poziom kofeiny. Owocowe nuty smakowe ziaren Arabica uszlachetniają smak swoim intensywnym aromatem, a Robusta przez większą zawartość kofeiny delikatnie pobudza. Sprawdza się jako idealne espresso lub w kawiarce.',
@@ -21,20 +27,18 @@ class DobryStartPage extends StatelessWidget {
     itemProcessing: 'Obróbka:',
   );
 
-  DobryStartPage({
-    Key? key,
-  }) : super(key: key);
-
   final MyController c = Get.put(MyController());
+
+  Package? selectedPackage;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf5e1d3),
+      backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          Product.itemName,
+          product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -45,7 +49,7 @@ class DobryStartPage extends StatelessWidget {
               MaterialPageRoute(builder: (_) => CartPage()),
             ),
             icon: const Icon(
-              Icons.shopping_bag_outlined,
+              Icons.shopping_cart,
               size: 32,
               color: Colors.black,
             ),
@@ -62,7 +66,7 @@ class DobryStartPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Image(image: AssetImage(Product.imagePath)),
+              child: Image(image: AssetImage(product.imagePath)),
             ),
           ),
           Row(
@@ -71,7 +75,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 60),
                 child: Text(
-                  Product.itemName,
+                  product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -82,7 +86,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 10, right: 30),
                 child: Text(
-                  Product.itemSpecies,
+                  product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -102,7 +106,7 @@ class DobryStartPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                Product.itemDescription,
+                product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -125,7 +129,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemCountry,
+                  product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -150,7 +154,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemRegion,
+                  product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -175,7 +179,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemCultivation,
+                  product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -200,7 +204,7 @@ class DobryStartPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemProcessing,
+                  product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -230,83 +234,21 @@ class DobryStartPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 22, right: 22),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '250g',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
+          Builder(builder: (context) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GrammageButton(
+                  onTap: (package) {
+                    // context.read<DetailsCubit>().selectPackage(package);
+                    setState(() {
+                      selectedPackage = package;
+                    });
+                  },
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 22, right: 22),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '500g',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 28, right: 28),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '1kg',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
+              ],
+            );
+          }),
           Padding(
             padding:
                 const EdgeInsets.only(top: 40, bottom: 10, left: 30, right: 13),
@@ -332,7 +274,7 @@ class DobryStartPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     // ignore: sort_child_properties_last
-                    child: Image.asset('images/coffee-beans.png'),
+                    child: Image.asset('images/icons/coffee-beans.png'),
                     height: 62,
                   ),
                 ),
@@ -347,7 +289,7 @@ class DobryStartPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/coffee-maker.png'),
+                    child: Image.asset('images/icons/coffee-maker.png'),
                     height: 62,
                   ),
                 ),
@@ -362,7 +304,7 @@ class DobryStartPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/chemex.png'),
+                    child: Image.asset('images/icons/chemex.png'),
                     height: 62,
                   ),
                 ),
@@ -377,7 +319,7 @@ class DobryStartPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/aeropress.png'),
+                    child: Image.asset('images/icons/aeropress.png'),
                     height: 62,
                   ),
                 ),
@@ -392,7 +334,7 @@ class DobryStartPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/coffee-pot.png'),
+                    child: Image.asset('images/icons/coffee-pot.png'),
                     height: 62,
                   ),
                 ),
@@ -467,7 +409,7 @@ class DobryStartPage extends StatelessWidget {
                     width: 20,
                   ),
                   Obx(() => SizedBox(
-                        width: 30,
+                        width: 35,
                         child: Text(
                           c.coffee.toString(),
                           style: GoogleFonts.montserrat(fontSize: 30),
@@ -491,25 +433,33 @@ class DobryStartPage extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(width: 20),
               Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 12, bottom: 10, left: 60, right: 5),
-                    child: Text('Cena:',
-                        style: GoogleFonts.montserrat(fontSize: 18)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12, bottom: 10, left: 10, right: 40),
-                    child: Text(
-                      '33zł',
-                      style: GoogleFonts.montserrat(
-                          fontSize: 30, fontWeight: FontWeight.bold),
+                        top: 12, bottom: 10, left: 20, right: 5),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 60,
+                          child: Text('Cena:',
+                              style: GoogleFonts.montserrat(fontSize: 18)),
+                        ),
+                        SizedBox(
+                          width: 80,
+                          child: Text(
+                            '${selectedPackage?.price ?? 0}zł',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 30, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
+              const SizedBox(width: 30),
             ],
           ),
           Padding(
@@ -539,5 +489,113 @@ class DobryStartPage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Package {
+  final String weight;
+  final int price;
+
+  Package({
+    required this.weight,
+    required this.price,
+  });
+}
+
+class GrammageButton extends StatefulWidget {
+  final void Function(Package) onTap;
+
+  GrammageButton({super.key, required this.onTap});
+
+  @override
+  State<GrammageButton> createState() => _GrammageButtonState();
+}
+
+class _GrammageButtonState extends State<GrammageButton> {
+  final packages = [
+    Package(weight: '250g', price: 33),
+    Package(weight: '500g', price: 66),
+    Package(weight: '1kg', price: 120),
+  ];
+
+  int? selectedPackageIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (context) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          for (final package in packages) ...[
+            Builder(builder: (context) {
+              final indexOfPackage = packages.indexOf(package);
+              final isSelected = selectedPackageIndex == indexOfPackage;
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedPackageIndex = indexOfPackage;
+                  });
+                  widget.onTap(package);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Container(
+                    height: 45,
+                    width: 90,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                          color: isSelected
+                              ? Colors.grey.shade300
+                              : Colors.grey.shade200),
+                      boxShadow: isSelected
+                          ? [
+                              BoxShadow(
+                                color: Colors.grey.shade300,
+                                offset: const Offset(1, 5),
+                                blurRadius: 10,
+                                spreadRadius: 1,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-2, -2),
+                                blurRadius: 6,
+                                spreadRadius: -2,
+                              ),
+                            ]
+                          : [
+                              BoxShadow(
+                                color: Colors.grey.shade500,
+                                offset: const Offset(5, 5),
+                                blurRadius: 13,
+                                spreadRadius: 1,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1, -1),
+                                blurRadius: 10,
+                                spreadRadius: -3,
+                              ),
+                            ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        package.weight.toString(),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 160, 80, 48),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ],
+        ],
+      );
+    });
   }
 }

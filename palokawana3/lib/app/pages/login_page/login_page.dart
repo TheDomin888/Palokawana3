@@ -1,4 +1,6 @@
 // import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +20,8 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
   var isCreatingAccount = false;
 
   @override
@@ -291,7 +294,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(16)),
                           height: 62,
-                          child: Image.asset('images/google.png'),
+                          child: Image.asset('images/icons/google.png'),
                         ),
                       ),
                       Padding(
@@ -302,7 +305,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(16)),
                           height: 62,
-                          child: Image.asset('images/facebook.png'),
+                          child: Image.asset('images/icons/facebook.png'),
                         ),
                       ),
                       Padding(
@@ -313,7 +316,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(16)),
                           height: 62,
-                          child: Image.asset('images/apple.png'),
+                          child: Image.asset('images/icons/apple.png'),
                         ),
                       ),
                     ],
@@ -334,19 +337,40 @@ class _LoginPageState extends State<LoginPage> {
         return const Center(
           child: CircularProgressIndicator(
             backgroundColor: Colors.white,
-            valueColor: AlwaysStoppedAnimation<Color>(
+            valueColor: AlwaysStoppedAnimation(
               Color.fromARGB(255, 160, 80, 48),
             ),
           ),
         );
       },
     );
+    await Future.delayed(
+      const Duration(seconds: 2),
+    );
+    Navigator.pop(context);
+
     context
         .read<LoginCubit>()
         .logIn(widget.emailController.text, widget.passwordController.text);
   }
 
   Future signUp(BuildContext context) async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.white,
+              valueColor: AlwaysStoppedAnimation(
+                Color.fromARGB(255, 160, 80, 48),
+              ),
+            ),
+          );
+        });
+    await Future.delayed(
+      const Duration(seconds: 2),
+    );
+    Navigator.pop(context);
     context.read<LoginCubit>().signUp(
           widget.emailController.text,
           widget.passwordController.text,

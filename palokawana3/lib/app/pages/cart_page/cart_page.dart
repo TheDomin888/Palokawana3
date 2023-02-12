@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:palokawana3/app/pages/main_page/cart_model.dart';
-import 'package:palokawana3/app/pages/cart_page/coffee_item_cart.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
-import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   CartPage({super.key});
@@ -61,7 +58,7 @@ class CartPage extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                             image: const DecorationImage(
-                              image: AssetImage('images/Santos.png'),
+                              image: AssetImage('images/coffee/Santos.png'),
                             ),
                           ),
                           height: 192,

@@ -17,6 +17,7 @@ class MyController extends GetxController {
         barBlur: 20,
         isDismissible: true,
         backgroundColor: Colors.white,
+        duration: const Duration(seconds: 3),
       );
     } else {
       coffee.value--;

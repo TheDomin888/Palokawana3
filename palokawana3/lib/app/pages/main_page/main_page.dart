@@ -136,7 +136,7 @@ class _HomePageState extends State<MainPage> {
                     child: Consumer<CartModel>(
                       builder: (context, value, child) {
                         return GridView.builder(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           itemCount: value.shopItems.length,
                           shrinkWrap: true,
                           gridDelegate:

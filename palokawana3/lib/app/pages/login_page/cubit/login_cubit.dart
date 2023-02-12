@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ class LoginCubit extends Cubit<LoginState> {
           success: true,
           errorMessage: null,
         ),
+      );
+      emit(
+        LoginState(),
       );
     } on FirebaseAuthException catch (errorMessage) {
       if (errorMessage.code == 'invalid-email') {

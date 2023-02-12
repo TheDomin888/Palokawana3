@@ -3,14 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
-import 'package:palokawana3/app/pages/main_page/cart_model.dart';
 import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
-import 'package:provider/provider.dart';
 
 class CerradoPage extends StatelessWidget {
-  final Product = const ProductContent(
+  final product = const ProductContent(
     itemName: 'Brasil Cerrado',
-    imagePath: 'images/Cerrado.png',
+    imagePath: 'images/coffee/Cerrado.png',
     itemSpecies: '100% Arabika',
     itemDescription:
         'Castanha do Cerrado dzięki naturnalnej obróbce ziaren,  wyróznia się na tle innych swoją słodyczą. W profilu sensorycznym możemy wyczuć nuty mlecznej czekolady, karmelu i jagód. Dla osób, które preferują mleczne kawy będzie to idealne rozwiązanie. Również miłośnicy przelewowych metod zaparzania, odkryją nowe doznania smakowe.',
@@ -31,7 +29,7 @@ class CerradoPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.black,
         title: Text(
-          Product.itemName,
+          product.itemName,
           style: GoogleFonts.cinzel(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -59,9 +57,7 @@ class CerradoPage extends StatelessWidget {
               width: 315,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Image(
-                image: AssetImage(Product.imagePath),
-              ),
+              child: Image.asset(product.imagePath),
             ),
           ),
           Row(
@@ -70,7 +66,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 30, right: 10),
                 child: Text(
-                  Product.itemName,
+                  product.itemName,
                   style: GoogleFonts.cinzel(
                       fontSize: 25,
                       color: Colors.black,
@@ -81,7 +77,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15, bottom: 10, left: 40, right: 30),
                 child: Text(
-                  Product.itemSpecies,
+                  product.itemSpecies,
                   style: GoogleFonts.montserrat(fontSize: 15),
                 ),
               ),
@@ -101,7 +97,7 @@ class CerradoPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                Product.itemDescription,
+                product.itemDescription,
                 textAlign: TextAlign.justify,
                 style: GoogleFonts.montserrat(fontSize: 15, height: 2),
               ),
@@ -124,7 +120,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemCountry,
+                  product.itemCountry,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -149,7 +145,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemRegion,
+                  product.itemRegion,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -174,7 +170,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemCultivation,
+                  product.itemCultivation,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -199,7 +195,7 @@ class CerradoPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 8, bottom: 10, left: 30, right: 5),
                 child: Text(
-                  Product.itemProcessing,
+                  product.itemProcessing,
                   style: GoogleFonts.montserrat(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -331,7 +327,7 @@ class CerradoPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     // ignore: sort_child_properties_last
-                    child: Image.asset('images/coffee-beans.png'),
+                    child: Image.asset('images/icons/coffee-beans.png'),
                     height: 62,
                   ),
                 ),
@@ -346,7 +342,7 @@ class CerradoPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/coffee-maker.png'),
+                    child: Image.asset('images/icons/coffee-maker.png'),
                     height: 62,
                   ),
                 ),
@@ -361,7 +357,7 @@ class CerradoPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/chemex.png'),
+                    child: Image.asset('images/icons/chemex.png'),
                     height: 62,
                   ),
                 ),
@@ -376,7 +372,7 @@ class CerradoPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/aeropress.png'),
+                    child: Image.asset('images/icons/aeropress.png'),
                     height: 62,
                   ),
                 ),
@@ -391,7 +387,7 @@ class CerradoPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Image.asset('images/coffee-pot.png'),
+                    child: Image.asset('images/icons/coffee-pot.png'),
                     height: 62,
                   ),
                 ),
@@ -513,8 +509,8 @@ class CerradoPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100.0),
-            child: MaterialButton(
-              onPressed: () {},
+            child: GestureDetector(
+              onTap: () {},
               child: Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.all(20),
