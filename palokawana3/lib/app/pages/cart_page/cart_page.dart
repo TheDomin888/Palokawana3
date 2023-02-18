@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/home_page/home_page.dart';
 
 class CartPage extends StatelessWidget {
   CartPage({super.key});
@@ -11,15 +12,6 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.black,
-        title: Text(
-          'Koszyk',
-          style: GoogleFonts.cinzel(
-              fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: const Color.fromARGB(255, 220, 200, 191),
-      ),
       backgroundColor: const Color.fromARGB(255, 243, 234, 228),
       body: SafeArea(
         child: Builder(
@@ -361,7 +353,13 @@ class CartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const HomePage(),
+                              ),
+                            );
+                          },
                           child: Container(
                             width: 190,
                             height: 53,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:palokawana3/app/pages/product%20pages/cerrado_page/cerrado_page.dart';
-import 'package:palokawana3/app/pages/product%20pages/dobry_start_page.dart';
-import 'package:palokawana3/app/pages/product%20pages/kolumbia_page.dart';
-import 'package:palokawana3/app/pages/product%20pages/santos_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/dobry_start_page/dobry_start_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/kolumbia_page/kolumbia_page.dart';
+import 'package:palokawana3/app/pages/product%20pages/santos_page/santos_page.dart';
 
 class CartModel extends ChangeNotifier {
   final List _shopItmes = [
@@ -36,27 +36,5 @@ class CartModel extends ChangeNotifier {
     ],
   ];
 
-  List _cartItems = [];
-
   get shopItems => _shopItmes;
-
-  get cartItems => _cartItems;
-
-  void addItemToCart(int index) {
-    _cartItems.add(_shopItmes[index]);
-    notifyListeners();
-  }
-
-  void removeItemFromCart(int index) {
-    _cartItems.removeAt(index);
-    notifyListeners();
-  }
-
-  String calculateTotal() {
-    double totalPrice = 0;
-    for (int i = 0; i < cartItems.lenght; i++) {
-      totalPrice += double.parse(_cartItems[i][1]);
-    }
-    return totalPrice.toStringAsFixed(2);
-  }
 }

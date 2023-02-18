@@ -162,7 +162,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/przelewy24.png'),
+                          image: AssetImage('images/icons/przelewy24.png'),
                           width: 90,
                         ),
                       ),
@@ -208,7 +208,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/blik.jpeg'),
+                          image: AssetImage('images/icons/blik.jpeg'),
                           width: 90,
                         ),
                       ),
@@ -254,7 +254,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/applepay.png'),
+                          image: AssetImage('images/icons/applepay.png'),
                           width: 90,
                         ),
                       ),
@@ -300,7 +300,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/googlepay.png'),
+                          image: AssetImage('images/icons/googlepay.png'),
                           width: 90,
                         ),
                       ),
@@ -355,7 +355,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/inpost.png'),
+                          image: AssetImage('images/icons/inpost.png'),
                           width: 90,
                         ),
                       ),
@@ -401,7 +401,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/inpost.png'),
+                          image: AssetImage('images/icons/inpost.png'),
                           width: 90,
                         ),
                       ),
@@ -447,7 +447,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         padding: const EdgeInsets.all(7),
                         decoration: const BoxDecoration(color: Colors.white),
                         child: const Image(
-                          image: AssetImage('images/inpost.png'),
+                          image: AssetImage('images/icons/inpost.png'),
                           width: 90,
                         ),
                       ),

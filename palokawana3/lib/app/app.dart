@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:palokawana3/app/cubit/root_cubit.dart';
+import 'package:palokawana3/app/pages/checkout_page.dart/checkout_page.dart';
 import 'package:palokawana3/app/pages/home_page/home_page.dart';
 import 'package:palokawana3/app/pages/login_page/login_page.dart';
 import 'package:palokawana3/app/pages/main_page/cart_model.dart';
+import 'package:palokawana3/app/pages/setting_page/setting_page.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {

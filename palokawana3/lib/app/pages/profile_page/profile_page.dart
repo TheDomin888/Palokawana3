@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/cubit/root_cubit.dart';
 import 'package:palokawana3/app/pages/home_page/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:palokawana3/app/pages/setting_page/setting_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -219,7 +220,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           top: 8, bottom: 50, left: 70, right: 10),
                       child: IconButton(
                         onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const HomePage()),
+                          MaterialPageRoute(
+                              builder: (_) => const SettingsPage()),
                         ),
                         icon: const Icon(
                           Icons.keyboard_arrow_right_outlined,

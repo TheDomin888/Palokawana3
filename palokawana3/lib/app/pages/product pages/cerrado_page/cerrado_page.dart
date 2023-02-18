@@ -1,11 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palokawana3/app/pages/cart_page/cart_page.dart';
 import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
+import 'package:palokawana3/app/pages/product%20pages/dobry_start_page/dobry_start_page.dart';
 import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 
-class CerradoPage extends StatelessWidget {
+class CerradoPage extends StatefulWidget {
+  CerradoPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<CerradoPage> createState() => _CerradoPageState();
+}
+
+class _CerradoPageState extends State<CerradoPage> {
   final product = const ProductContent(
     itemName: 'Brasil Cerrado',
     imagePath: 'images/coffee/Cerrado.png',
@@ -17,10 +28,12 @@ class CerradoPage extends StatelessWidget {
     itemCultivation: 'Wysokość upraw:',
     itemProcessing: 'Obróbka:',
   );
-  CerradoPage({
-    Key? key,
-  }) : super(key: key);
+
   final MyController c = Get.put(MyController());
+
+  Package? selectedPackage;
+
+  Product? selectedProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -225,83 +238,24 @@ class CerradoPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 22, right: 22),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '250g',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
+          Builder(builder: (context) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GrammageButton(
+                  onTap: (package) {
+                    // context.read<DetailsCubit>().selectPackage(package);
+                    setState(
+                      () {
+                        selectedPackage = package;
+                      },
+                    );
+                  },
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 22, right: 22),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '500g',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.only(
-                          top: 13, bottom: 13, left: 28, right: 28),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 255, 255, 255),
-                    )),
-                child: Text(
-                  '1kg',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 160, 80, 48),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
+              ],
+            );
+          }),
+          //
           Padding(
             padding:
                 const EdgeInsets.only(top: 40, bottom: 10, left: 30, right: 13),
@@ -316,128 +270,19 @@ class CerradoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    // ignore: sort_child_properties_last
-                    child: Image.asset('images/icons/coffee-beans.png'),
-                    height: 62,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset('images/icons/coffee-maker.png'),
-                    height: 62,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset('images/icons/chemex.png'),
-                    height: 62,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset('images/icons/aeropress.png'),
-                    height: 62,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset('images/icons/coffee-pot.png'),
-                    height: 62,
-                  ),
-                ),
-              ),
+              ProductButton(
+                onTap: (product) {
+                  setState(
+                    () {
+                      selectedProduct = product;
+                    },
+                  );
+                },
+              )
             ],
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 1, bottom: 40, left: 40, right: 10),
-                child: Text(
-                  'Ziarna',
-                  style: GoogleFonts.montserrat(fontSize: 12),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 1, bottom: 40, left: 24, right: 10),
-                child: Text(
-                  'Przelew',
-                  style: GoogleFonts.montserrat(fontSize: 12),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 1, bottom: 40, left: 20, right: 10),
-                child: Text(
-                  'Chemex',
-                  style: GoogleFonts.montserrat(fontSize: 12),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 1, bottom: 40, left: 13, right: 10),
-                child: Text(
-                  'Aeropress',
-                  style: GoogleFonts.montserrat(fontSize: 12),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 1, bottom: 40, left: 10, right: 10),
-                child: Text(
-                  'Kawiarka',
-                  style: GoogleFonts.montserrat(fontSize: 12),
-                ),
-              ),
-            ],
-          ),
+          const SizedBox(height: 30),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -462,10 +307,10 @@ class CerradoPage extends StatelessWidget {
                     width: 20,
                   ),
                   Obx(() => SizedBox(
-                        width: 30,
+                        width: 35,
                         child: Text(
                           c.coffee.toString(),
-                          style: GoogleFonts.montserrat(fontSize: 25),
+                          style: GoogleFonts.montserrat(fontSize: 30),
                           textAlign: TextAlign.center,
                         ),
                       )),
@@ -486,19 +331,26 @@ class CerradoPage extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(width: 20),
               Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 12, bottom: 10, left: 60, right: 5),
-                    child: Text('Cena:',
-                        style: GoogleFonts.montserrat(fontSize: 18)),
+                        top: 12, bottom: 10, left: 20, right: 5),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 60,
+                          child: Text('Cena:',
+                              style: GoogleFonts.montserrat(fontSize: 18)),
+                        ),
+                      ],
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12, bottom: 10, left: 10, right: 40),
+                  SizedBox(
+                    width: 80,
                     child: Text(
-                      '33zł',
+                      '${selectedPackage?.price ?? 0}zł',
                       style: GoogleFonts.montserrat(
                           fontSize: 30, fontWeight: FontWeight.bold),
                     ),
@@ -537,20 +389,238 @@ class CerradoPage extends StatelessWidget {
   }
 }
 
+class Package {
+  final String weight;
+  final int price;
 
-      // body: Expanded(
-      //   child: Consumer<CartModel>(
-      //     builder: (context, value, child) {
-      //       return ListView.builder(
-      //         itemBuilder: ((context, index) {
-      //           return ProductContent(
-      //             itemName: value.shopItems[index][0],
-      //             itemPrice: value.shopItems[index][1],
-      //             imagePath: value.shopItems[index][2],
-      //             color: value.shopItems[index][3],
-      //           );
-      //         }),
-      //       );
-      //     },
-      //   ),
-      // ),
+  Package({
+    required this.weight,
+    required this.price,
+  });
+}
+
+class GrammageButton extends StatefulWidget {
+  final void Function(Package) onTap;
+
+  const GrammageButton({super.key, required this.onTap});
+
+  @override
+  State<GrammageButton> createState() => _GrammageButtonState();
+}
+
+class _GrammageButtonState extends State<GrammageButton> {
+  final packages = [
+    Package(weight: '250g', price: 33),
+    Package(weight: '500g', price: 66),
+    Package(weight: '1kg', price: 120),
+  ];
+  int? selectedPackageIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (context) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          for (final package in packages) ...[
+            Builder(builder: (context) {
+              final indexOfPackage = packages.indexOf(package);
+              final isSelected = selectedPackageIndex == indexOfPackage;
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedPackageIndex = indexOfPackage;
+                  });
+                  widget.onTap(package);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Container(
+                    height: 45,
+                    width: 90,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                          color: isSelected
+                              ? Colors.grey.shade300
+                              : Colors.grey.shade200),
+                      boxShadow: isSelected
+                          ? [
+                              BoxShadow(
+                                color: Colors.grey.shade300,
+                                offset: const Offset(1, 5),
+                                blurRadius: 10,
+                                spreadRadius: 1,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-2, -2),
+                                blurRadius: 6,
+                                spreadRadius: -2,
+                              ),
+                            ]
+                          : [
+                              BoxShadow(
+                                color: Colors.grey.shade500,
+                                offset: const Offset(5, 5),
+                                blurRadius: 13,
+                                spreadRadius: 1,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1, -1),
+                                blurRadius: 10,
+                                spreadRadius: -3,
+                              ),
+                            ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        package.weight.toString(),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 160, 80, 48),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ],
+        ],
+      );
+    });
+  }
+}
+
+class Product {
+  final Image image;
+  final String title;
+  final int price;
+
+  Product({
+    required this.image,
+    required this.title,
+    required this.price,
+  });
+}
+
+class ProductButton extends StatefulWidget {
+  final void Function(Product) onTap;
+
+  const ProductButton({super.key, required this.onTap});
+
+  @override
+  State<ProductButton> createState() => _ProductButtonState();
+}
+
+class _ProductButtonState extends State<ProductButton> {
+  final products = [
+    Product(
+      image: Image.asset('images/icons/coffee-beans.png'),
+      title: 'Ziarna',
+      price: 0,
+    ),
+    Product(
+      image: Image.asset('images/icons/aeropress.png'),
+      title: 'Aeropress',
+      price: 0,
+    ),
+    Product(
+      image: Image.asset('images/icons/chemex.png'),
+      title: 'Chemex',
+      price: 0,
+    ),
+    Product(
+      image: Image.asset('images/icons/coffee-maker.png'),
+      title: 'Przelew',
+      price: 0,
+    ),
+    Product(
+      image: Image.asset('images/icons/coffee-pot.png'),
+      title: 'Ziarna',
+      price: 0,
+    ),
+  ];
+
+  int? selectedProductIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Builder(
+        builder: (context) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                for (final product in products) ...[
+                  Builder(
+                    builder: (context) {
+                      final indexOfProduct = products.indexOf(product);
+                      final isSelected = selectedProductIndex == indexOfProduct;
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedProductIndex = indexOfProduct;
+                          });
+                          widget.onTap(product);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(7),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                                color: isSelected
+                                    ? Colors.grey.shade300
+                                    : Colors.grey.shade200),
+                            boxShadow: isSelected
+                                ? [
+                                    BoxShadow(
+                                      color: Colors.grey.shade300,
+                                      offset: const Offset(1, 5),
+                                      blurRadius: 10,
+                                      spreadRadius: 1,
+                                    ),
+                                    const BoxShadow(
+                                      color: Colors.white,
+                                      offset: Offset(-2, -2),
+                                      blurRadius: 6,
+                                      spreadRadius: -2,
+                                    ),
+                                  ]
+                                : [
+                                    BoxShadow(
+                                      color: Colors.grey.shade500,
+                                      offset: const Offset(5, 5),
+                                      blurRadius: 13,
+                                      spreadRadius: 1,
+                                    ),
+                                    const BoxShadow(
+                                      color: Colors.white,
+                                      offset: Offset(-1, -1),
+                                      blurRadius: 10,
+                                      spreadRadius: -3,
+                                    ),
+                                  ],
+                          ),
+                          height: 62,
+                          child: product.image,
+                        ),
+                      );
+                    },
+                  ),
+                ]
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

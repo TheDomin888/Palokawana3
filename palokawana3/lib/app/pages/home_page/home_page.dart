@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Builder(builder: (context) {
           if (_currentIndex == 0) {
             return Text(
