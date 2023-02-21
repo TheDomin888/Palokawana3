@@ -72,3 +72,13 @@ class GrammageButton extends StatelessWidget {
     );
   }
 }
+
+class Package {
+  final String weight;
+  final int price;
+
+  Package({
+    required this.weight,
+    required this.price,
+  });
+}

@@ -7,7 +7,12 @@ import 'package:palokawana3/app/pages/cotroller_page/my_controller.dart';
 import 'package:palokawana3/app/pages/product%20pages/dobry_start_page/cubit/dobrystart_cubit.dart';
 import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 
+import 'widgets/add_to_cart_button.dart';
+import 'widgets/beans_title.dart';
 import 'widgets/grammage_button.dart';
+import 'widgets/grammage_title.dart';
+import 'widgets/product_button.dart';
+import 'widgets/qty_and_price.dart';
 
 class DobryStartPage extends StatefulWidget {
   const DobryStartPage({
@@ -124,132 +129,126 @@ class _DobryStartPageState extends State<DobryStartPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 30, bottom: 10, left: 30, right: 10),
-                  child: Text(
-                    'Specyfikacja:',
-                    style: GoogleFonts.cinzel(
-                        fontSize: 22,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Row(
+                Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 30, right: 5),
+                          top: 30, bottom: 10, left: 30, right: 10),
                       child: Text(
-                        product.itemCountry,
-                        style: GoogleFonts.montserrat(
-                            fontSize: 15, fontWeight: FontWeight.bold),
+                        'Specyfikacja:',
+                        style: GoogleFonts.cinzel(
+                            fontSize: 22,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const Expanded(
-                      child: Divider(
-                          thickness: 0.5,
-                          color: Color.fromARGB(255, 51, 49, 49)),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 30, right: 5),
+                          child: Text(
+                            product.itemCountry,
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Divider(
+                              thickness: 0.5,
+                              color: Color.fromARGB(255, 51, 49, 49)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 5, right: 30),
+                          child: Text(
+                            'Brazylia/Indie',
+                            style: GoogleFonts.montserrat(fontSize: 15),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 5, right: 30),
-                      child: Text(
-                        'Brazylia/Indie',
-                        style: GoogleFonts.montserrat(fontSize: 15),
-                      ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 30, right: 5),
+                          child: Text(
+                            product.itemRegion,
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Divider(
+                              thickness: 0.5,
+                              color: Color.fromARGB(255, 51, 49, 49)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 5, right: 30),
+                          child: Text(
+                            'Sao Paulo',
+                            style: GoogleFonts.montserrat(fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 30, right: 5),
+                          child: Text(
+                            product.itemCultivation,
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Divider(
+                              thickness: 0.5,
+                              color: Color.fromARGB(255, 51, 49, 49)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 5, right: 30),
+                          child: Text(
+                            '800-1350 m.n.p.m',
+                            style: GoogleFonts.montserrat(fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 30, right: 5),
+                          child: Text(
+                            product.itemProcessing,
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Divider(
+                              thickness: 0.5,
+                              color: Color.fromARGB(255, 51, 49, 49)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 5, right: 30),
+                          child: Text(
+                            'Myta',
+                            style: GoogleFonts.montserrat(fontSize: 15),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 30, right: 5),
-                      child: Text(
-                        product.itemRegion,
-                        style: GoogleFonts.montserrat(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const Expanded(
-                      child: Divider(
-                          thickness: 0.5,
-                          color: Color.fromARGB(255, 51, 49, 49)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 5, right: 30),
-                      child: Text(
-                        'Sao Paulo',
-                        style: GoogleFonts.montserrat(fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 30, right: 5),
-                      child: Text(
-                        product.itemCultivation,
-                        style: GoogleFonts.montserrat(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const Expanded(
-                      child: Divider(
-                          thickness: 0.5,
-                          color: Color.fromARGB(255, 51, 49, 49)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 5, right: 30),
-                      child: Text(
-                        '800-1350 m.n.p.m',
-                        style: GoogleFonts.montserrat(fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 30, right: 5),
-                      child: Text(
-                        product.itemProcessing,
-                        style: GoogleFonts.montserrat(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const Expanded(
-                      child: Divider(
-                          thickness: 0.5,
-                          color: Color.fromARGB(255, 51, 49, 49)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 10, left: 5, right: 30),
-                      child: Text(
-                        'Myta',
-                        style: GoogleFonts.montserrat(fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 30, bottom: 20, left: 30, right: 10),
-                  child: Text(
-                    'Wielkość opakowania:',
-                    style: GoogleFonts.cinzel(
-                        fontSize: 22,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                const GrammageTitle(),
                 Builder(builder: (context) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -265,21 +264,11 @@ class _DobryStartPageState extends State<DobryStartPage> {
                     ],
                   );
                 }),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 40, bottom: 20, left: 30, right: 13),
-                  child: Text(
-                    'Ziarna czy zmielona?',
-                    style: GoogleFonts.cinzel(
-                        fontSize: 22,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                const BeansTitle(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ProductButton(
+                    ProductButtons(
                       onTap: (product) {
                         setState(
                           () {
@@ -291,109 +280,8 @@ class _DobryStartPageState extends State<DobryStartPage> {
                   ],
                 ),
                 const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Colors.white,
-                          ),
-                          child: IconButton(
-                            icon: const Icon(Icons.add),
-                            onPressed: () => c.increment(),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Obx(() => SizedBox(
-                              width: 35,
-                              child: Text(
-                                c.coffee.toString(),
-                                style: GoogleFonts.montserrat(fontSize: 30),
-                                textAlign: TextAlign.center,
-                              ),
-                            )),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Colors.white,
-                          ),
-                          child: IconButton(
-                            icon: const Icon(Icons.remove),
-                            onPressed: () => c.decrement(),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 20),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 12, bottom: 10, left: 20, right: 5),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 60,
-                                child: Text('Cena:',
-                                    style:
-                                        GoogleFonts.montserrat(fontSize: 18)),
-                              ),
-                              SizedBox(
-                                width: 80,
-                                child: Text(
-                                  '${selectedPackage?.price ?? 0}zł',
-                                  style: GoogleFonts.montserrat(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 30),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 160, 80, 48),
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Dodaj do koszyka',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                QtyAndPrice(c: c, selectedPackage: selectedPackage),
+                const AddToCartButton(),
               ],
             ),
           );
@@ -401,16 +289,6 @@ class _DobryStartPageState extends State<DobryStartPage> {
       ),
     );
   }
-}
-
-class Package {
-  final String weight;
-  final int price;
-
-  Package({
-    required this.weight,
-    required this.price,
-  });
 }
 
 class GrammageButtons extends StatefulWidget {
@@ -466,128 +344,50 @@ class _GrammageButtonsState extends State<GrammageButtons> {
   }
 }
 
-class Product {
-  final Image image;
-  final String title;
-  final int price;
-
-  Product({
-    required this.image,
-    required this.title,
-    required this.price,
-  });
-}
-
-class ProductButton extends StatefulWidget {
+class ProductButtons extends StatefulWidget {
   final void Function(Product) onTap;
 
-  const ProductButton({super.key, required this.onTap});
+  const ProductButtons({super.key, required this.onTap});
 
   @override
-  State<ProductButton> createState() => _ProductButtonState();
+  State<ProductButtons> createState() => _ProductButtonsState();
 }
 
-class _ProductButtonState extends State<ProductButton> {
-  final products = [
-    Product(
-      image: Image.asset('images/icons/coffee-beans.png'),
-      title: 'Ziarna',
-      price: 0,
-    ),
-    Product(
-      image: Image.asset('images/icons/aeropress.png'),
-      title: 'Aeropress',
-      price: 0,
-    ),
-    Product(
-      image: Image.asset('images/icons/chemex.png'),
-      title: 'Chemex',
-      price: 0,
-    ),
-    Product(
-      image: Image.asset('images/icons/coffee-maker.png'),
-      title: 'Przelew',
-      price: 0,
-    ),
-    Product(
-      image: Image.asset('images/icons/coffee-pot.png'),
-      title: 'Ziarna',
-      price: 0,
-    ),
-  ];
-
-  int? selectedProductIndex;
+class _ProductButtonsState extends State<ProductButtons> {
+  // int? selectedProductIndex;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Builder(
-        builder: (context) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                for (final product in products) ...[
-                  Builder(
-                    builder: (context) {
-                      final indexOfProduct = products.indexOf(product);
-                      final isSelected = selectedProductIndex == indexOfProduct;
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            selectedProductIndex = indexOfProduct;
-                          });
-                          widget.onTap(product);
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(7),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: isSelected
-                                    ? Colors.grey.shade300
-                                    : Colors.grey.shade200),
-                            boxShadow: isSelected
-                                ? [
-                                    BoxShadow(
-                                      color: Colors.grey.shade300,
-                                      offset: const Offset(1, 5),
-                                      blurRadius: 10,
-                                      spreadRadius: 1,
-                                    ),
-                                    const BoxShadow(
-                                      color: Colors.white,
-                                      offset: Offset(-2, -2),
-                                      blurRadius: 6,
-                                      spreadRadius: -2,
-                                    ),
-                                  ]
-                                : [
-                                    BoxShadow(
-                                      color: Colors.grey.shade500,
-                                      offset: const Offset(5, 5),
-                                      blurRadius: 13,
-                                      spreadRadius: 1,
-                                    ),
-                                    const BoxShadow(
-                                      color: Colors.white,
-                                      offset: Offset(-1, -1),
-                                      blurRadius: 10,
-                                      spreadRadius: -3,
-                                    ),
-                                  ],
-                          ),
-                          height: 62,
-                          child: product.image,
-                        ),
-                      );
-                    },
-                  ),
-                ]
-              ],
-            ),
+    return BlocProvider(
+      create: (context) => DobrystartCubit(),
+      child: BlocBuilder<DobrystartCubit, DobrystartState>(
+        builder: (context, state) {
+          final products = state.products;
+          return Builder(
+            builder: (context) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  for (final product in products) ...[
+                    Builder(
+                      builder: (context) {
+                        final indexOfProduct = products.indexOf(product);
+                        final isSelected =
+                            state.selectedProductIndex == indexOfProduct;
+                        return ProductButton(
+                            title: product.title.toString(),
+                            isSelected: isSelected,
+                            onTap: () {
+                              context
+                                  .read<DobrystartCubit>()
+                                  .selectNewProductIndex(indexOfProduct);
+                            });
+                      },
+                    ),
+                  ]
+                ],
+              );
+            },
           );
         },
       ),
