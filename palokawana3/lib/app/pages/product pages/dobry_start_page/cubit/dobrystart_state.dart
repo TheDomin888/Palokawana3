@@ -6,11 +6,13 @@ class DobrystartState {
   final int? selectedPackageIndex;
   final List<Product> products;
   final int? selectedProductIndex;
+  final String price;
 
   const DobrystartState({
     required this.selectedPackageIndex,
     required this.packages,
     required this.products,
     required this.selectedProductIndex,
+    required this.price,
   });
 }

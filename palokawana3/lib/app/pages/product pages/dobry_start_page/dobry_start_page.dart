@@ -9,10 +9,13 @@ import 'package:palokawana3/app/pages/product%20pages/product_content.dart';
 
 import 'widgets/add_to_cart_button.dart';
 import 'widgets/beans_title.dart';
+import 'widgets/description.dart';
 import 'widgets/grammage_button.dart';
 import 'widgets/grammage_title.dart';
 import 'widgets/product_button.dart';
 import 'widgets/qty_and_price.dart';
+import 'widgets/sensory_profile.dart';
+import 'widgets/specification.dart';
 
 class DobryStartPage extends StatefulWidget {
   const DobryStartPage({
@@ -109,145 +112,9 @@ class _DobryStartPageState extends State<DobryStartPage> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 10, left: 30, right: 30),
-                  child: Text(
-                    'Czekolada, karmel, owoce jagodowe, orzechy.',
-                    style: GoogleFonts.montserrat(fontSize: 15),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 10, left: 30, right: 30),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      product.itemDescription,
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.montserrat(fontSize: 15, height: 2),
-                    ),
-                  ),
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 30, bottom: 10, left: 30, right: 10),
-                      child: Text(
-                        'Specyfikacja:',
-                        style: GoogleFonts.cinzel(
-                            fontSize: 22,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 30, right: 5),
-                          child: Text(
-                            product.itemCountry,
-                            style: GoogleFonts.montserrat(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const Expanded(
-                          child: Divider(
-                              thickness: 0.5,
-                              color: Color.fromARGB(255, 51, 49, 49)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 5, right: 30),
-                          child: Text(
-                            'Brazylia/Indie',
-                            style: GoogleFonts.montserrat(fontSize: 15),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 30, right: 5),
-                          child: Text(
-                            product.itemRegion,
-                            style: GoogleFonts.montserrat(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const Expanded(
-                          child: Divider(
-                              thickness: 0.5,
-                              color: Color.fromARGB(255, 51, 49, 49)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 5, right: 30),
-                          child: Text(
-                            'Sao Paulo',
-                            style: GoogleFonts.montserrat(fontSize: 15),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 30, right: 5),
-                          child: Text(
-                            product.itemCultivation,
-                            style: GoogleFonts.montserrat(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const Expanded(
-                          child: Divider(
-                              thickness: 0.5,
-                              color: Color.fromARGB(255, 51, 49, 49)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 5, right: 30),
-                          child: Text(
-                            '800-1350 m.n.p.m',
-                            style: GoogleFonts.montserrat(fontSize: 15),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 30, right: 5),
-                          child: Text(
-                            product.itemProcessing,
-                            style: GoogleFonts.montserrat(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const Expanded(
-                          child: Divider(
-                              thickness: 0.5,
-                              color: Color.fromARGB(255, 51, 49, 49)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8, bottom: 10, left: 5, right: 30),
-                          child: Text(
-                            'Myta',
-                            style: GoogleFonts.montserrat(fontSize: 15),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                const SensoryProfile(),
+                Description(product: product),
+                Specification(product: product),
                 const GrammageTitle(),
                 Builder(builder: (context) {
                   return Row(
@@ -255,7 +122,6 @@ class _DobryStartPageState extends State<DobryStartPage> {
                     children: [
                       GrammageButtons(
                         onTap: (package) {
-                          // context.read<DetailsCubit>().selectPackage(package);
                           setState(() {
                             selectedPackage = package;
                           });
@@ -270,17 +136,21 @@ class _DobryStartPageState extends State<DobryStartPage> {
                   children: [
                     ProductButtons(
                       onTap: (product) {
-                        setState(
-                          () {
-                            selectedProduct = product;
-                          },
-                        );
+                        // setState(
+                        //   () {
+                        //     selectedProduct = product;
+                        //   },
+                        // );
                       },
                     )
                   ],
                 ),
                 const SizedBox(height: 30),
-                QtyAndPrice(c: c, selectedPackage: selectedPackage),
+                QtyAndPrice(
+                  c: c,
+                  selectedPackage: selectedPackage,
+                  selectedProduct: selectedProduct,
+                ),
                 const AddToCartButton(),
               ],
             ),
@@ -301,45 +171,36 @@ class GrammageButtons extends StatefulWidget {
 }
 
 class _GrammageButtonsState extends State<GrammageButtons> {
-  // int? selectedPackageIndex;
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DobrystartCubit(),
-      child: BlocBuilder<DobrystartCubit, DobrystartState>(
-        builder: (context, state) {
-          final packages = state.packages;
-          return Builder(builder: (context) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                for (final package in packages) ...[
-                  Builder(builder: (context) {
-                    final indexOfPackage = packages.indexOf(package);
-                    final isSelected =
-                        state.selectedPackageIndex == indexOfPackage;
-                    return GrammageButton(
-                      title: package.weight.toString(),
-                      isSelected: isSelected,
-                      onTap: () {
-                        //cubit zmien selected index
-                        context
-                            .read<DobrystartCubit>()
-                            .selectNewPackageIndex(indexOfPackage);
-                        // setState(() {
-                        //   selectedPackageIndex = indexOfPackage;
-                        // });
-                        widget.onTap(package);
-                      },
-                    );
-                  }),
-                ],
+    return BlocBuilder<DobrystartCubit, DobrystartState>(
+      builder: (context, state) {
+        final packages = state.packages;
+        return Builder(builder: (context) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              for (final package in packages) ...[
+                Builder(builder: (context) {
+                  final indexOfPackage = packages.indexOf(package);
+                  final isSelected =
+                      state.selectedPackageIndex == indexOfPackage;
+                  return GrammageButton(
+                    title: package.weight.toString(),
+                    isSelected: isSelected,
+                    onTap: () {
+                      context
+                          .read<DobrystartCubit>()
+                          .selectNewPackageIndex(indexOfPackage);
+                      widget.onTap(package);
+                    },
+                  );
+                }),
               ],
-            );
-          });
-        },
-      ),
+            ],
+          );
+        });
+      },
     );
   }
 }
@@ -354,43 +215,39 @@ class ProductButtons extends StatefulWidget {
 }
 
 class _ProductButtonsState extends State<ProductButtons> {
-  // int? selectedProductIndex;
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DobrystartCubit(),
-      child: BlocBuilder<DobrystartCubit, DobrystartState>(
-        builder: (context, state) {
-          final products = state.products;
-          return Builder(
-            builder: (context) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  for (final product in products) ...[
-                    Builder(
-                      builder: (context) {
-                        final indexOfProduct = products.indexOf(product);
-                        final isSelected =
-                            state.selectedProductIndex == indexOfProduct;
-                        return ProductButton(
-                            title: product.title.toString(),
-                            isSelected: isSelected,
-                            onTap: () {
-                              context
-                                  .read<DobrystartCubit>()
-                                  .selectNewProductIndex(indexOfProduct);
-                            });
-                      },
-                    ),
-                  ]
-                ],
-              );
-            },
-          );
-        },
-      ),
+    return BlocBuilder<DobrystartCubit, DobrystartState>(
+      builder: (context, state) {
+        final products = state.products;
+        return Builder(
+          builder: (context) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                for (final product in products) ...[
+                  Builder(
+                    builder: (context) {
+                      final indexOfProduct = products.indexOf(product);
+                      final isSelected =
+                          state.selectedProductIndex == indexOfProduct;
+                      return ProductButton(
+                          image: product.image,
+                          title: product.title.toString(),
+                          isSelected: isSelected,
+                          onTap: () {
+                            context
+                                .read<DobrystartCubit>()
+                                .selectNewProductIndex(indexOfProduct);
+                          });
+                    },
+                  ),
+                ]
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }
